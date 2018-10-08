@@ -1,0 +1,64 @@
+
+body{
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    margin: 0;
+}
+
+h1{
+    font-size: 75%;
+
+}
+h2{
+    font-size: 72%;
+    margin-bottom: 40px;
+    margin: -8px auto 40px auto;
+    color: rgb(129, 128, 128);
+}
+h1, h3, h3 > a{
+    color: rgb(81, 163, 187);
+}
+h3, p{
+    font-size: 74%;
+}
+
+.nearList{
+    margin-bottom: -17px;
+}
+ul li{
+    list-style: none;
+    font-size: 73%;
+    margin-left: -40px;
+}
+
+a, footer > p{
+    text-decoration: none;
+    color: rgb(87, 86, 86);
+}
+a:hover{
+    color:white;
+}
+
+.menu_wrap, .video_wrap{
+    position: relative;
+    float: left;
+    margin-top: 100px;
+}
+
+.menu_wrap{
+    margin-left: 50px;
+    height: auto;
+    padding: 10px;
+}
+
+.video_wrap{
+    margin-left: 100px;
+}
+
+footer{
+    clear: both;
+    margin-top: 50px;
+   
+}
