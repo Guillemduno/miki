@@ -38,7 +38,7 @@ a, footer > p{
     color: rgb(87, 86, 86);
 }
 a:hover{
-    color:white;
+    color:black;
 }
 
 .menu_wrap, .video_wrap{
