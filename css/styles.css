@@ -51,14 +51,30 @@ a:hover{
     margin-left: 50px;
     height: auto;
     padding: 10px;
+   
+}
+p {
+    text-align: justify;
 }
 
 .video_wrap{
     margin-left: 100px;
+    width: 640px;
+   
 }
+
 
 footer{
     clear: both;
     margin-top: 50px;
    
+}
+
+/*
+.video_wrap, .menu_wrap{
+    border: 1px solid red;
+}*/
+
+.bold{
+    font-weight: bold;
 }
