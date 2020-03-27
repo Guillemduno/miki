@@ -2,30 +2,30 @@
 body{
     background-color: white;
     color: rgb(33,33,33);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Courier New, Helvetica, sans-serif;
     font-size: 100%;
     margin: 0;
 }
 
 h1{
-    font-size: 75%;
+    font-size: 125%;
 
 }
 h2{
     font-size: 72%;
-    margin-bottom: 40px;
-    margin: -8px auto 40px auto;
-    color: rgb(129, 128, 128);
+    margin-bottom: 20px;
+    margin: -16px auto 40px auto;
+    color: rgb(0,0,0);
 }
 h1, h3, h3 > a{
-    color: rgb(81, 163, 187);
+    color: rgb(0,0,0);
 }
 h3, p{
     font-size: 74%;
 }
 
 .nearList{
-    margin-bottom: -17px;
+    margin-bottom: -10px;
 }
 ul li{
     list-style: none;
