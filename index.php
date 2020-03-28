@@ -27,7 +27,13 @@
                 <a href="https://vimeo.com/user8390075">Principal 2a Films</a> on 
                 <a href="https://vimeo.com">Vimeo</a>.
               </p>
-          </div>';
+
+              <div class="poster">
+                <img src="./img/khalid.jpg" width="50%" alt="" srcset="">
+              </div>
+          </div>
+      
+          ';
 
       break;
     
@@ -136,6 +142,10 @@
                   <li><span class="bold">Jefe de producción</span>: Reinaldo Rojas</li>
                   <li><span class="bold">Sonidista</span>: Reinaldo Rojas</li>           
                 </ul>
+                <div class="poster">
+                <img src="./img/khalid.jpg" width="50%" alt="" srcset="">
+              </div>
+          </div>
               </div>';
     break;
 

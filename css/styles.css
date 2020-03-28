@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body
 {
@@ -7,6 +11,7 @@ body
   font-size: 100%;
   margin: 0;
 }
+
 
 h1
 {
@@ -31,15 +36,30 @@ h3, p
   font-size: 74%;
 }
 
+.logo
+{
+  font-size: 300%;
+}
+.logo2
+{
+  font-size: 150%;
+  margin: 0px;
+}
+.works
+{
+  margin-bottom: 25px;
+  
+}
 .nearList
 {
-  margin-bottom: -10px;
+  margin-bottom: 10px;
 }
 ul li
 {
   list-style: none;
   font-size: 73%;
   margin-left: -40px;
+  margin-bottom: 10px;
 }
 
 a, footer > p
@@ -56,14 +76,21 @@ a:hover
 {
   position: relative;
   float: left;
-  margin-top: 100px;
+  margin-top: 40px;
+  
+}
+.content_logo{
+
+  width: 50%;
+  margin-top: 40px;
+
 }
 
-.menu_wrap
+.menu_wrap, .content_logo
 {
   margin-left: 50px;
   height: auto;
-  padding: 10px;
+  -padding: 10px;
 }
 p 
 {
@@ -74,6 +101,9 @@ p
 {
   margin-left: 100px;
   width: 640px;
+}
+.poster{
+  margin-top: 25px;
 }
 
 footer
