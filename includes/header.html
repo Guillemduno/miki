@@ -5,42 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>Miquel Romans - Director and Producer</title>
-
+    <title>Miquel Romans - Director y productor audiovisual</title>
 </head>
 <body>
   <header class="content_logo">
     <h1 class="logo">Miquel Romans</h1>
-    <h2 class="logo2">Film director and producer</h2>
+    <h2 class="logo2">Director y productor audiovisual</h2>
   </header>
+  <div id="content_wrap">
     <header class="menu_wrap">
         <section class="works">
-            <h3 class="nearList">Director works</h3>
-                <ul>
-                    <li><a href="./index.php?key=skin">Skin Academy</a></li>
-		                <li><a href="./index.php?key=isma">Isma </a></li>
-                    <li><a href="./index.php?key=omar">Omar </a></li>
-                    <li><a href="./index.php?key=mathausen">Mauthausen 2030</a></li>
-                    <li><a href="./index.php?key=mtd">MTD</a></li>
-                    <li><a href="./index.php?key=khalid">Khalid</a></li>
-                    <li><a href="./index.php?key=barcelona">Barcelona Iron Markets</a></li>
-                </ul>
+            <h3 class="nearList">Proyectos ficción</h3>
+            <ul>
+              <!--  <li><a href="./index.php?key=skin" onclick="showInfo('skin')">Skin Academy</a></li> --> 
+              <li onclick="showInfo('plom')">Cel de plom ( en desarrollo )</li>
+              <li onclick="showInfo('clara')">Buscando a Clara</li>
+              <li onclick="showInfo('last')">The last tape</li>
+              <li onclick="showInfo('norte')">Sector Norte</li>  
+              <li onclick="showInfo('conocida')">Mi historia es conocida</li>
+              <li onclick="showInfo('mathausen')">Mauthausen 2030</li> 
+              <li onclick="showInfo('distancia')">A distància</li>
+              <li onclick="showInfo('omar')">Omar</li>
+              <li onclick="showInfo('pepin')">El barco de Pepin</li>
+              <li onclick="showInfo('mare')">Mare tornaré demà</li>
+              <li onclick="showInfo('khalid')">Khalid</li>
+              <li onclick="showInfo('mercats')">Mercats de Barcelona</li>
+            </ul>
         </section>
         <section  class="works">
-            <h3 class="nearList">Producer works</h3>
-                <ul>
-                    <li><a href="./index.php?key=cronico">Cronico y rebelde</a></li>
-                    <li><a href="./index.php?key=last">The last tape </a></li>
-                    <li><a href="./index.php?key=gas">Gas Natural</a></li>
-                    <li><a href="./index.php?key=aperol">Aperol</a></li>
-                    <li><a href="./index.php?key=lacaixa">La Caixa</a></li>
-                </ul>
+            <h3 class="nearList">Director de producción</h3>
+            <ul>
+              <li onclick="showInfo('fred')">Fred ( Largometraje )</li>
+              <li onclick="showInfo('dona')">La dona il·legal ( Largometraje )</li>
+            </ul>
         </section>
-        <h3 class="nearList"><a href="./index.php?key=bio">Bio</a></h3>
-        <h3 class="nearList"><a href="./index.php?key=contact">Contacto</a></h3>
-        <footer>
-                <p id="copyRight"></p>
-        </footer>
+        <section  class="works">
+          <h3 class="nearList">Proyectos publicidad</h3>
+          <ul>
+            <li onclick="showInfo('skin')">Skin academy</li>
+            <li onclick="showInfo('gas')">Gas Natural</li>
+            <li onclick="showInfo('lacaixa')">La Caixa</li>
+            <li onclick="showInfo('aperol')">Aperol</li>
+            <li onclick="showInfo('superunick')">Superunick</li>
+            <li onclick="showInfo('norit')">Norit</li>
+          </ul>
+      </section>
+        <h3 class="nearList cursor" onclick="showInfo('bio')">Info</h3>
+        <h3 class="nearList cursor" onclick="showInfo('contact')">Contacto</h3>
+
     </header>
-
-

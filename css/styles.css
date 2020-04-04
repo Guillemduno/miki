@@ -9,9 +9,8 @@ body
   color: rgb(33,33,33);
   font-family: Courier New, Helvetica, sans-serif;
   font-size: 100%;
-  margin: 0;
-}
 
+}
 
 h1
 {
@@ -48,7 +47,6 @@ h3, p
 .works
 {
   margin-bottom: 25px;
-  
 }
 .nearList
 {
@@ -67,16 +65,27 @@ a, footer > p
   text-decoration: none;
   color: rgb(87, 86, 86);
 }
-a:hover
+ul li:hover
 {
   color:black;
+  cursor: pointer;
+  -background-color: bisque;
+}
+.cursor{
+  cursor: pointer;
+}
+
+#content_wrap
+{
+  display: flex;
+  flex-wrap: wrap;
+  -border: 3px solid blue;
 }
 
 .menu_wrap, .video_wrap
 {
-  position: relative;
-  float: left;
   margin-top: 40px;
+  -border: 1px solid red;
   
 }
 .content_logo{
@@ -97,6 +106,11 @@ p
   text-align: justify;
 }
 
+#content{
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .video_wrap
 {
   margin-left: 100px;
@@ -108,8 +122,15 @@ p
 
 footer
 {
-  clear: both;
-  margin-top: 50px;
+  margin: 25px 0 25px 0;
+  -border: 1px solid red;
+
+}
+footer p{
+
+  font-size: 0.7em;
+  margin-left: 50px;
+ 
 }
 
 /*
