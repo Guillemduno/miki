@@ -304,9 +304,11 @@
     // OMAR
     case 'omar':
       echo '<div class="video_wrap">
+      <div class="videoWrapper">
               <iframe src="https://player.vimeo.com/video/290646522" width="640" height="360" frameborder="0" 
                 webkitallowfullscreen mozallowfullscreen allowfullscreen>
               </iframe>
+      </div>
               <p> Cortometraje ficción 12” / En postproducción <p>           
               <p>El productor musical Samu va a producir la primera maqueta de rap de Omar Bachir, un joven rapero de 
                 Gambia. En su estudio, la noche que habían quedado para grabar, Omar no se presenta. Samu descubre que 
@@ -330,7 +332,7 @@
               <p>Con la participación de ICEC ( Industries Catalanes de Empresa Culturals )</p>
               <p>Y el Producers Meet Producers de PAC ( Productors associats de Catalunya )</p>
               <div class="poster">
-              <img src="./img/omar.jpg" width="50%" alt="Pòster de Omar">
+              <img src="./img/omar.jpg" width="100%" alt="Pòster de Omar">
             </div>
             </div>';
     break;

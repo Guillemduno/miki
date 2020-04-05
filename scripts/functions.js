@@ -23,3 +23,15 @@ function showInfo(key)
 
 } // end showInfo().
 
+// SHOW MENU
+function showMenu()
+{
+  //alert('clciket!!!');
+  document.getElementById('hide_menu').style.display = "block";
+}
+function hideMenu()
+{
+  //alert('clciket!!!');
+  document.getElementById('hide_menu').style.display = "none";
+}
+
