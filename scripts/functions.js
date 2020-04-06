@@ -14,6 +14,7 @@ function showInfo(key)
     {
       //alert(key);
       document.getElementById('content').innerHTML = this.responseText;
+      showMenu();
     }
   };
 
@@ -26,12 +27,17 @@ function showInfo(key)
 // SHOW MENU
 function showMenu()
 {
-  //alert('clciket!!!');
-  document.getElementById('hide_menu').style.display = "block";
-}
-function hideMenu()
-{
-  //alert('clciket!!!');
-  document.getElementById('hide_menu').style.display = "none";
+  var value = document.getElementById("btn_menu").innerHTML;
+  
+  if(value == 'cerrar'){
+  
+    document.getElementById('hide_menu').style.display = "none";
+    document.getElementById('btn_menu').innerHTML = "menu";
+    
+  }else
+  {
+    document.getElementById('hide_menu').style.display = "block";
+    document.getElementById('btn_menu').innerHTML = "cerrar";
+  }
 }
 

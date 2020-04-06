@@ -124,7 +124,6 @@ footer
 {
   margin: 25px 0 25px 0;
   -border: 1px solid red;
-
 }
 footer p{
 
@@ -143,16 +142,16 @@ footer p{
   font-weight: bold;
 }
 
+#btn_menu
+{
+  display: none;
+}
 
 /************** MOBILE ****************************************/
 
-@media screen and (max-width: 480px) 
+@media screen and (max-width: 600px) 
 {
   
-  body{
-    -background-color: pink;
-  }
-
   /*MOBILE HEADER */
     .content_logo, .menu_wrap
     {
@@ -165,13 +164,45 @@ footer p{
 
     .logo
     {
-      font-size: 3.2em;
+      font-size: 2em;
     }
     .logo2
     {
-      font-size:1.3em;
+      font-size:0.75em;
       margin: 0px;
     }
+
+    #btn_menu
+    {
+      display: block;
+      -border: 1px solid red;
+      text-align: center;
+      margin: 20px 0px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+
+    /*************************/
+
+    #hide_menu
+    {
+      width: 100%;
+      height: auto;
+      position: relative;
+      animation-name: example;
+      animation-duration: 2s;
+      background-color: black;
+      color:white;
+    }
+    
+    @keyframes example {
+      0%   {right:-300px;}
+      100% {right:0px;}
+    }
+    /*************************/
+
+
   /*MOBILE HEADER */
 
   .video_wrap{
@@ -200,5 +231,16 @@ footer p{
     width: 100%;
     height: auto;
   }
+
+  /* FOOTER */
+
+  footer p{
+    margin: 0px;
+  }
+
+  #copyRight{
+    text-align: center;
+  }
+  /* FOOTER */
 }
   
