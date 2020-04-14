@@ -1,4 +1,73 @@
-
+<!--MENÚ LATERAL -->
+<p id="btn_menu" onclick="showMenu()">menu</p>
+  <div id="content_wrap">
+    <header id="hide_menu" class="menu_wrap hide_menu">
+        <section class="works">
+            <h3 class="nearList">Proyectos ficción</h3>
+            <ul>
+              <li onclick="showInfo('comando')">Comando de les Gandules</li>
+              <li onclick="showInfo('pacientes')">Los pacientes de Clara</li>
+              <li onclick="showInfo('last')">The last tape</li>
+              <li onclick="showInfo('skin')">Skin academy</li>
+              <li onclick="showInfo('conocida')">Mi historia es conocida</li>
+              <li onclick="showInfo('mathausen')">Mauthausen 2030</li> 
+              <li onclick="showInfo('pepin')">El barco de Pepín</li> 
+              <li onclick="showInfo('norte')">Sector Norte</li>  
+              <li onclick="showInfo('distancia')">A distància</li>
+              <li onclick="showInfo('omar')">Omar</li>
+              <li onclick="showInfo('mare')">Mare tornaré demà ( Yacine and the Oriental Groove )</li>
+              <li onclick="showInfo('khalid')">Khalid</li>
+              <li onclick="showInfo('mercats')">Barcelona Iron Markets</li>
+            </ul>
+        </section>
+        <section  class="works">
+            <h3 class="nearList">Director de producción de cine</h3>
+            <ul>
+                <li onclick="showInfo('dona')">La dona il·legal</li>
+                <li onclick="showInfo('fred')">Fred</li>
+            </ul>
+        </section>
+        <section  class="works">
+          <h3 class="nearList">Proyectos publicidad</h3>
+          <ul>
+            <li onclick="showInfo('lacaixa')">La Caixa</li>
+            <li onclick="showInfo('gas')">Gas Natural</li>
+            <li onclick="showInfo('norit')">Norit Oda</li>
+            <li onclick="showInfo('aperol')">Aperol</li>
+            <li onclick="showInfo('superunick')">Superunick</li>
+          </ul>
+      </section>
+        <h3 class="nearList cursor" onclick="showInfo('bio')">Info</h3>
+        <h3 class="nearList cursor" onclick="showInfo('contact')">Contacto</h3>
+    </header>
  
- <!--Inserta el contingut de cada pel·lícula-->
- <div id="content"></div>
+    <!--Inserta el contingut de cada pel·lícula-->
+    <div id="content">
+      <div id="portada">
+        <div onclick="showInfo('last')" class="poster">
+          <img src="./img/last.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('omar')" class="poster">
+          <img src="./img/omar.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('clara')" class="poster">
+          <img src="./img/clara.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('conocida')" class="poster">
+          <img src="./img/conocida.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('khalid')" class="poster">
+          <img src="./img/khalid.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('mauthausen')" class="poster">
+          <img src="./img/mauthausen.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('norte')" class="poster">
+          <img src="./img/norte.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+        <div onclick="showInfo('omar')" class="poster">
+          <img src="./img/omar.jpg" width="100%" alt="Pòster de Omar">
+        </div>
+      </div>
+    </div>
+
