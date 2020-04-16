@@ -36,10 +36,10 @@
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $table_email = $row["email"];
+                $table_email    = $row["email"];
                 $table_password = $row["password"];
-                $table_nom = $row["nom"];
-                $table_perfil = $row['perfil'];
+                $table_nom      = $row["nom"];
+                $table_perfil   = $row['perfil'];
             }
         } else {
             echo "Aquest email no consta a la base de dades.";
@@ -75,7 +75,7 @@
     // ACCEDIEX AL PANELL ADMIN, SINO, NO.
     if($error_m == 0 && $error_p == 0)
     {
-      $_SESSION['user'] = $table_nom;
+      $_SESSION['user'] = utf8_encode($table_nom);
       $_SESSION['perfil'] = $table_perfil;
       header('Location: admin.php');
     
