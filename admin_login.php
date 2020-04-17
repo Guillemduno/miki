@@ -26,11 +26,12 @@
     else{
       if(isset($_POST['email']))
       {
-        $email = $_POST['email'];
+        $email = trim($_POST['email']);
         $error_email="";
 
         // Conslutem a la base de dades 
-        $sql = "SELECT email, password, nom, perfil FROM USUARIS where email = '$email'";
+        $sql = "SELECT email, password, nom, perfil FROM usuaris where email = '$email'";
+        echo "sql: ".$sql;
         $result = $mysqli->query($sql);
     
         if ($result->num_rows > 0) {
@@ -62,7 +63,7 @@
     else{
       if(isset($_POST['password']))
       {
-        $password = sha1($_POST['password']);
+        $password = trim(sha1($_POST['password']));
         if($password == $table_password){
           $error_p = 0;
         }else{
