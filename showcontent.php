@@ -19,7 +19,7 @@
     // COMANDO
     case 'comando':
 
-      $video      = "https://vimeo.com/402823870";
+      //$video      = "https://vimeo.com/402823870"; // Video Privat
       $tipo       = "Largometraje en desarrollo 100’";
       $descripcio = "En el año 1945 Neus Català regresa a Francia después de sobrevivó a la deportación nazi. La felicidad
       de volver a casa sus padres contrasta con la espera de su marido Albert, del que nadie ha recibido 
@@ -30,13 +30,13 @@
                         "Productor Ejecutivo" =>"Miquel Romans",
                         "Guionista"           =>"Lydia Zimmerman y Miquel Romans",
                         "Productor asociado"  =>"Sandra Forn" );
-      pinta_credits($video, $tipo, $descripcio, $equipo, "", "", "", "", "");   
+      pinta_credits('', $tipo, $descripcio, $equipo, "", "", "", "", "");   
     break;
    
     // PACIENTES DE CLARA
     case 'pacientes':
 
-      $video      = "https://vimeo.com/392280488";
+      $video      = "https://vimeo.com/392280488"; // Video Privat
       $tipo       = "Webserie 30’";
       $descripcio = "Clara es una profesional sanitaria que dedica su vida al centro médico y a sus pacientes. Pero las 
       condiciones con la que trabaja y una saturación de sus tareas diarias la llevan a una decisión de la que no 
@@ -50,13 +50,13 @@
                             "Director de arte"      =>"Marta Santos",
                             "Jefe de sonido"        =>"Xavi Saucedo",
                             "Etalonaje"             =>"Cristina Pérez"); 
-      pinta_credits($video, $tipo, $descripcio, $equipo, $actors, "", "", "", ""); 
+      pinta_credits('', $tipo, $descripcio, $equipo, $actors, "", "", "", ""); 
     break;
 
     // LAST TAPE
     case 'last':
 
-      $video      = "https://vimeo.com/304376568";
+      $video      = "https://vimeo.com/304376568"; // Video Privat
       $tipo       = "Cortometraje documental 11’";
       $descripcio = "Igor tiene un sueño: cuando cumpla 18 años se alistará en el ejército para defender a su país, 
       Ucrania. Los nacionalistas ucranianos se han hecho fuerte en la zona este del país, en la frontera con Rusia, 
@@ -101,16 +101,16 @@
                           "Film Festival Herceg Novi",
                           "Duisburger Filmwoche doxs!",
                           "Copenhagen Short Film Festival");
-        $ruta_poster = './img/last.jpg';
+        $ruta_poster = './img/last20.jpg';
         $premis = array("Nominee: German Short Film Award LOLA - Deutscher Kurzfilmpreis",
                         "Molodist Kiev International Film Festival 2017: Special Jury Mention",
                         'Filmbewertungsstelle: Prädikat “besonders wertvoll”');
-        pinta_credits($video, $tipo, $descripcio, $equipo, "", $festivals, $ruta_poster, $premis, "");
+        pinta_credits('', $tipo, $descripcio, $equipo, "", $festivals, $ruta_poster, $premis, "");
       break;
 
   // APEROL
     case 'aperol':
-      $video        = "https://vimeo.com/257846389";
+      $video        = "https://player.vimeo.com/video/257846389?autoplay=1&loop"; // Video Correcte
       $tipo         = "";
       $descripcio   = "";
       $equipo       = array("Director"  =>"Christian Martínez",
@@ -122,38 +122,10 @@
       $colaboradors = array();
       pinta_credits($video, "", "", $equipo, "", "", "", "", "");
     break;
-    
-    // CRONICO
-    case 'cronico':
-      echo '
-              <iframe src="https://player.vimeo.com/video/259744538" width="640" height="360" frameborder="0" 
-                webkitallowfullscreen mozallowfullscreen allowfullscreen>
-              </iframe>
-              <p>Webserie ficción<p>
-              <p>Mi historia es conocida: todos llegamos a este punto, tarde o temprano. De lo que se trata es de llegar 
-                  lo más tarde posible. No es el momento de 		 lamentarse. Quizá sí de explicar cómo he llegado hasta 
-                  aquí y en este estado, pero antes de hacerlo quiero que penséis que yo también tuve treinta 
-                  años, que fui bueno en lo mío, fui profesional, competente, enérgico.
-              </p>
-              <ul>
-                  <li><span class="bold">Productora:</span> Principal 2 films</li>
-                  <li><span class="bold">Director:</span> Pau de la Sierra</li>
-                  <li><span class="bold">Productor ejecutivo:</span> Miquel Romans</li>
-                  <li><span class="bold">Director de fotografía</span>: Marc Zumbach</li>
-                  <li><span class="bold">Jefe de producción:</span> Mercé Batalla</li>
-                  <li><span class="bold">Vestuario y atrezzo:</span> Marcel Bofill</li>
-                  <li><span class="bold">Colorista:</span>  Nacho</li>
-                  <li><span class="bold">Sonido:</span> Ferran García</li>
-              </ul>
-
-              <p>Una idea original de Rafa Carbó de Fictio</p>
-              <p>Para Boheringer</p>
-           ';
-    break;
 
     // GAS NATURAL
     case 'gas':
-      $video        = "https://vimeo.com/235932914";
+      $video        = "https://player.vimeo.com/video/235932914?autoplay=1&looptitle=0&byline=0&portrait=0"; // Video correcte.
       $tipo         = "";
       $descripcio   = "";
       $equipo       = array("Director"  =>"Christian Martínez.",
@@ -200,8 +172,9 @@
     break;
 
     // KHALID
+
     case 'khalid':
-      $video        = "https://vimeo.com/278479507";
+      $video        = "https://player.vimeo.com/video/278479507?autoplay=1&loop&title=0&byline=0&portrait=0";
       $tipo         = "Cortometraje ficción 14’";
       $descripcio   = "Khalid no conoce a su hermano mayor que vive en Marruecos y su familia ha perdido el contacto 
       con él. Con 17 años y nacido en la Barcelona periférica, nunca ha visitado el país de origen de su familia y se 
@@ -219,7 +192,7 @@
                               "Postproducción"          =>"Lastcrit");
       $actors       = array();
       $festivals    = array();
-      $ruta_poster  = 'img/khalid.jpg';
+      $ruta_poster  = 'img/khalid20.jpg';
       $premis       = array();
       $colaboradors = array();
       pinta_credits($video, $tipo, $descripcio, $equipo, "", "", $ruta_poster, "", "");
@@ -227,7 +200,7 @@
 
     // LA CAIXA
     case 'lacaixa':
-      $video        = "https://vimeo.com/181074478";
+      $video        = "https://player.vimeo.com/video/181074478?autoplay=1&loop&title=0&byline=0&portrait=0";
       $tipo         = "";
       $descripcio   = "";
       $equipo       = array(  "Director"  =>"Christian Martínez",
@@ -242,8 +215,7 @@
 
     // MATHAUSEN
     case 'mathausen':
-
-      $video      = "https://vimeo.com/168204068";
+      $video      = "https://player.vimeo.com/video/168204068?autoplay=1&loop&title=0&byline=0&portrait=0";
       $tipo       = "Documental 30’";
       $descripcio = "Son los últimos supervivientes del campo de nazi de Mauthausen: Marcial Mayans ( 95 ), Cristóbal 
       Soriano (98) y José Marfil Peralta (97). Republicanos catalanes que se instalaron en el sud de Francia después de 
@@ -262,37 +234,17 @@
                         "Postproducción de sonido"=>"Ferran García");
       $actors     = array();
       $festivals  = array("Festival Judío de Barcelona 2017, Selección oficial");
-      $ruta_poster= 'img/mauthausen.jpg';
+      $ruta_poster= 'img/mauthausen20.jpg';
       $premis     = array();
       $colaboradors = array("Con la participación de MUHBA( Museu d’Història de Barcelona ), MHC ( Museu d’Història de Catalunya ) y Amical 
       de Mauthausen y otros campos de Barcelona");
       pinta_credits($video, $tipo, $descripcio, $equipo, "", $festivals, $ruta_poster, "", $colaboradors);
     break;
 
-    // MTD
-    case 'mtd':
-      echo '
-              <iframe src="https://player.vimeo.com/video/219708443" width="640" height="360" frameborder="0" 
-                webkitallowfullscreen mozallowfullscreen allowfullscreen>
-              </iframe>
-              <p>Un sábado por la tarde en la ciudad condal. Vías de tren y paredes con grafitis en un entorno 
-                industrial y urbano. La ropa, la actitud. Tres adolescentes que hoy no tienen clase, tiene libre: se 
-                encuentra, ríen, se pelean, juegan, bailan. Todo sirve para pasar el tiempo en este espacio urbano, 
-                en esta edad de transición y en un día donde no hay nada que hacer. 
-              </p>
-              <ul>
-                  <li><span class="bold">Productora:</span> Principal 2 films</li>
-                  <li><span class="bold">Director:</span> Miquel Romans</li>
-                  <li><span class="bold">Director de fotografía</span>: Ángel Manrique</li>
-                  <li><span class="bold">Vestuario y atrezzo:</span> Marcel Bofill</li>
-                  <li><span class="bold">Colorista:</span>  Ángel Manrique</li>
-              </ul>
-           ';
-    break;
-
     // NORIT
+
     case 'noritoda':
-      $video        = "https://vimeo.com/59475288";
+      $video        = "https://player.vimeo.com/video/59475288?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "";
       $descripcio   = "";
       $equipo       = array("Director"  =>"Carlos Luque",
@@ -307,7 +259,7 @@
 
     // DONA
     case 'dona':
-      $video        = "https://vimeo.com/340392321 ";
+      $video        = "https://vimeo.com/340392321";
       $tipo         = "Largometraje  100’";
       $descripcio   = "La Mujer Ilegal es un drama social que tiene lugar en la ciudad de Lleida en la actualidad y que 
       se basa en historias reales. Afronta sin embudos la situación de muchos inmigrantes que están sometidos a una Ley 
@@ -335,7 +287,7 @@
 
     // FRED
     case 'fred':
-      $video        = "https://vimeo.com/281250850";
+      $video        = "https://player.vimeo.com/video/281250850?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "Largometraje 90’";
       $descripcio   = "";
       $equipo       = array(  "Productora"              =>"Films de l’Orient",
@@ -353,8 +305,9 @@
     break;
 
     // MERCATS
+
       case 'mercats':
-      $video        = "https://vimeo.com/265730581";
+      $video        = "https://player.vimeo.com/video/265730581?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "Audiovisual Expositivo 12’";
       $descripcio   = "Barcelona Iron Markets";
       $equipo       = array();
@@ -368,7 +321,7 @@
 
     // MARE TORNARÉ DEMÀ
     case 'mare':
-      $video        = "https://vimeo.com/219074893";
+      $video        = "https://player.vimeo.com/video/219074893?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "Videoclip 4’";
       $descripcio   = "Un sábado por la tarde en la ciudad condal. Vías de tren y paredes con grafitis en un entorno 
       industrial y urbano. La ropa, la actitud. Tres adolescentes que hoy no tienen clase, tiene libre: se encuentra, 
@@ -389,7 +342,7 @@
 
     // OMAR
     case 'omar':
-      $video        = "https://vimeo.com/290646522";
+      $video        = "https://player.vimeo.com/video/290646522?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "Cortometraje ficción 12”";
       $descripcio   = "El productor musical Samu va a producir la primera maqueta de rap de Omar Bachir, un joven rapero 
       de Gambia. En su estudio, la noche que habían quedado para grabar, Omar no se presenta. Samu descubre que Omar ha 
@@ -409,7 +362,7 @@
     
       $actors       = array();
       $festivals    = array("Festival Internacional de Sitges 2018 ( Evento Producers meet producers )");
-      $ruta_poster  = 'img/omar.jpg';
+      $ruta_poster  = 'img/omar20.jpg';
       $premis       = array();
       $colaboradors = array("Con la participación de ICEC ( Industries Catalanes de Empresa Culturals", 
       "Y el Producers Meet Producers de PAC ( Productors associats de Catalunya )");
@@ -417,8 +370,9 @@
     break;
 
     // DISTANCIA
+
     case 'distancia':
-      $video        = "https://vimeo.com/316139345";
+      $video        = "https://player.vimeo.com/video/316139345?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo         = "Serie televisión 20’ ( en desarrollo )";
       $descripcio   = "Después de terminar la Universidad un grup de amigos se ven obligados a emprender su Carrera 
       laboral por separado. Algunos por motivos de precariedad y otros por el deseo de conocer nuevas realidades, 
@@ -437,7 +391,8 @@
 
     // El barco de Pepín
     case 'pepin':
-      $video        = "https://vimeo.com/326565383";
+
+      $video        = "https://player.vimeo.com/video/326565383?title=0&byline=0&portrait=0"; //Video privat
       $tipo         = "Webserie 30’";
       $descripcio   = "Alfredo Belmonte regresa a su pueblo natal después de la muerte del amigo Pepín. Allí se 
       reencuentra con el viejo Matías, un amigo con problemas de salud con el que guarda un secreto del pasado. Cuando 
@@ -457,11 +412,12 @@
       $ruta_poster  = '';
       $premis       = array();
       $colaboradors = array();
-      pinta_credits($video, $tipo, $descripcio, $equipo, "", "", "", "", "");
+      pinta_credits('', $tipo, $descripcio, $equipo, "", "", "", "", "");
     break;
 
+    // Sector Norte
     case 'norte':
-      $video        = "https://vimeo.com/304581009";
+      $video        = "https://vimeo.com/304581009";  // Video privat.
       $tipo         = "Teaser 6’ ( En desarrollo )";
       $descripcio   = "";
       $equipo       = array( "Productora"           =>"PS Films ( Principal Segona )",
@@ -476,13 +432,12 @@
       $ruta_poster  = '';
       $premis       = array();
       $colaboradors = array("Con la colaboración de Alberto Díaz y Pau Roca.");
-      pinta_credits($video, $tipo, "", $equipo, "", "", "", "", $colaboradors);
+      pinta_credits('', $tipo, "", $equipo, "", "", "", "", $colaboradors);
     break;
 
     // SKIN
     case 'skin':
-
-      $video      = "https://vimeo.com/263726736";
+      $video      = "https://player.vimeo.com/video/263726736?autoplay=1&loop=1&title=0&byline=0&portrait=0"; // Video Correcte
       $tipo       = "Video creativo 1’30”";
       $descripcio = "Los ojos que evitan mi mirada no son tuyos, son más bien los míos. Nací limpia, ignorante de ti. 
       Escuché a mi padre hablar de ti y te vi con él. Apareciste en escena cuando cumplí dieciséis, al principio tímida. 
@@ -508,7 +463,7 @@
 
     // SUPERUNICK
     case 'superunick':
-      $video        = "https://vimeo.com/277300570";
+      $video        = "https://player.vimeo.com/video/277300570?autoplay=1&loop=1&title=0&byline=0&portrait=0"; // Video correcte.
       $tipo         = "";
       $descripcio   = "";
       $equipo       = array();
@@ -522,9 +477,9 @@
 
    
     // MI HISTORIA ES CONOCIDA
-    case 'conocida':
+    case 'cronico':
 
-      $video      = "https://vimeo.com/259744538";
+      $video      = "https://player.vimeo.com/video/259744538?autoplay=1&loop=1&title=0&byline=0&portrait=0";
       $tipo       = "Webserie 30’";
       $descripcio = "Alfredo Belmonte es un paciente viudo y descontrolado que no atiende a sus problemas de salud. 
                       Todo cambia cuándo su médico le propone apuntarse a un concurso de baile.";

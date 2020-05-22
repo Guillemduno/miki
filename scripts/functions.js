@@ -29,21 +29,14 @@ function showMenu()
 {
   var value = document.getElementById("btn_menu").innerHTML;
 
- 
-  
   if(value == 'cerrar'){
-   //document.getElementById('hide_menu').style.display = 'none';
-    //document.getElementById('hide_menu').classList.add("anima_cerrar");
     document.getElementById('hide_menu').classList.add("hide_menu");
     document.getElementById('btn_menu').innerHTML = "menu";
     
   }else
   {
-
     document.getElementById('hide_menu').classList.remove("hide_menu");
     document.getElementById('btn_menu').innerHTML = "cerrar";
-    //document.getElementById('hide_menu').classList.remove("anima_cerrar");
-    //document.getElementById('hide_menu').classList.add("anima_menu");
   }
 }
 

@@ -1,8 +1,10 @@
 
 <?php
+  // Title
+  $title = "Loggin Adminstracíon | Miquel Romans";
 
   // CAPÇALERA
-  include('includes/header.html');
+  include('includes/header.php');
   include('connection.php');
 
   session_start();
@@ -60,7 +62,8 @@
     {
       $error_password = 'Has d\'escriure un password.';
     }
-    else{
+    else
+    {
       if(isset($_POST['password']))
       {
         $password = trim(sha1($_POST['password']));

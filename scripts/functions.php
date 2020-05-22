@@ -7,7 +7,7 @@
     { 
       echo'
       <div class="videoWrapper">
-        <iframe src="'.$video.'" width="640" height="360" frameborder="0" 
+        <iframe class="responsive-iframe" src="'.$video.'" frameborder="0" 
           webkitallowfullscreen mozallowfullscreen allowfullscreen>
         </iframe>
       </div>';
@@ -21,7 +21,7 @@
     // DESCRIPCIÓ
     if(!empty($descripcio))
     { 
-      echo '<p style="margin-bottom: 10px;">'.$descripcio.'</p>';
+      echo '<p style="margin-bottom: 10px; width:auto;">'.$descripcio.'</p>';
     }    
   
     // ACTORS
@@ -44,7 +44,7 @@
       <ul>';
       foreach ($equipo as $key => $value)
       {
-          echo '<li>'.$key.": ".$value.".</li>";
+          echo '<li><b>'.$key."</b>: ".$value.".</li>";
       }
       echo '</ul>';
     }
@@ -64,8 +64,9 @@
     // RUTA POSTER
     if (!empty($ruta_poster)) {
       echo '
+      <p style="margin:40px 0px 10px 0px;">Cartel:</p>
       <div class="poster">
-        <img src="'.$ruta_poster.'" width="50%" alt="Pòster">
+        <img src="'.$ruta_poster.'" alt="Pòster">
       </div>';
     }
 
