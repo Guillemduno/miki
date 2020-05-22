@@ -14,6 +14,7 @@ function showInfo(key)
     {
       //alert(key);
       document.getElementById('content').innerHTML = this.responseText;
+      showMenu();
     }
   };
 
@@ -22,4 +23,20 @@ function showInfo(key)
   xhttp.send("key="+key);
 
 } // end showInfo().
+
+// SHOW MENU
+function showMenu()
+{
+  var value = document.getElementById("btn_menu").innerHTML;
+
+  if(value == 'cerrar'){
+    document.getElementById('hide_menu').classList.add("hide_menu");
+    document.getElementById('btn_menu').innerHTML = "menu";
+    
+  }else
+  {
+    document.getElementById('hide_menu').classList.remove("hide_menu");
+    document.getElementById('btn_menu').innerHTML = "cerrar";
+  }
+}
 

@@ -1,8 +1,8 @@
 
 <?php
-
+  $title = 'Proyectos | Miquel Romans';
   // CAPÇALERA
-  include('includes/header.html');
+  include('includes/header.php');
   // COS
   include('includes/body.html');
   // PEU
