@@ -13,7 +13,8 @@
       $password = 'wY0W6raeU3izYbR'; //To be completed if you have set a password to root
       $database = 'epiz_25468458_romans'; //To be completed to connect to a database. The database must exist.
       $port     = NULL; //Default must be NULL to use default port
-      $host     = 'sql212.epizy.com';    break;
+      $host     = 'sql212.epizy.com';    
+      break;
     
     default:
       $user     = 'root';

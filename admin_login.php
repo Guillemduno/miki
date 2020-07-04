@@ -31,7 +31,7 @@
         $email = trim($_POST['email']);
         $error_email="";
 
-        // Conslutem a la base de dades 
+        // Consultem a la base de dades 
         $sql = "SELECT email, password, nom, perfil FROM usuaris where email = '$email'";
         echo "sql: ".$sql;
         $result = $mysqli->query($sql);

@@ -1,5 +1,5 @@
 
-// FUNCTION THAT CALCULATE TEH CURRENT YEAR//
+// FUNCTION THAT CALCULATE THE CURRENT YEAR//
 const date = new Date();
 const year = date.getFullYear();
 document.getElementById("copyRight").innerHTML = "Copyright &copy "+year+" MIQUEL ROMANS. All rights reserved.";
