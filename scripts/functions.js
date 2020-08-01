@@ -5,7 +5,7 @@ const year = date.getFullYear();
 document.getElementById("copyRight").innerHTML = "Copyright &copy "+year+" MIQUEL ROMANS. All rights reserved.";
 
 // Show content
-function showInfo(key)
+function showInfo(id)
 {
    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function()
@@ -20,7 +20,7 @@ function showInfo(key)
 
   xhttp.open("POST", "showcontent.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("key="+key);
+  xhttp.send("id="+id);
 
 } // end showInfo().
 

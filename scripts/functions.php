@@ -94,4 +94,13 @@
       echo '</ul>';
     }
   } // FI pinta_credits.
+
+
+  // Comprova espais en blanc, Slashes i caracters especials dels inputs. 
+  function check_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
 ?>

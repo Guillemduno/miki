@@ -5,6 +5,7 @@
 
   // CAPÇALERA
   include('includes/header.php');
+  include('scripts/functions.php');
   include('connection.php');
 
   session_start();
@@ -28,7 +29,8 @@
     else{
       if(isset($_POST['email']))
       {
-        $email = trim($_POST['email']);
+        $email = check_input($_POST['email']);
+        // Comprovar amb expressio regular email. preg_match("", $email);
         $error_email="";
 
         // Consultem a la base de dades 
@@ -66,7 +68,7 @@
     {
       if(isset($_POST['password']))
       {
-        $password = trim(sha1($_POST['password']));
+        $password = check_input(sha1($_POST['password']));
         if($password == $table_password){
           $error_p = 0;
         }else{
@@ -91,6 +93,7 @@
 
 ?>
 <!--COS -->
+
   <h1 class="title_login_admin">Accés al panell d'adminstració</h1>
 
   <form id="form1" action="" method="post" >
@@ -101,9 +104,8 @@
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" value="<?php if(isset($_POST['password']))echo $_POST['password'] ?>">
     <span id="show_error_passwprd" class="msg_error"><?php if(isset($error_password)) echo $error_password ?></span>
-    <input type="submit" value="Entrar">
+    <input class="btnSubmit" type="submit" value="Entrar">
   </form>
-
 <?php
 // PEU
   include('includes/footer.html');

@@ -237,11 +237,12 @@ footer p{
 /*******************
 * ADMIN_LOGIN
 ********************/
+
   #form1{
     display: flex;
     flex-direction: column;
     width:25%;
-    margin-left: 50px;
+    margin-left: 45px;
   }
 
   #form1 > input, #form1 > input{
@@ -258,10 +259,76 @@ footer p{
   .title_login_admin{
     margin: 50px;
   }
+
+  .btnSubmit{
+    height: 40px;
+    cursor:pointer;
+  }
+
+ 
 /*******************
 * ADMIN_LOGIN
 ********************/
 
+
+
+/*******************
+* ADMIN
+********************/
+
+
+nav{
+  -border: 1px solid red;
+  padding: 0px;
+  font-size: 2em;
+}
+input{
+  border-radius: 2px;
+  outline: red;
+  padding: 5px;
+}
+ul li{
+  margin: 0px;
+}
+
+ul{
+  display: flex;
+}
+
+li a{
+  color: black;
+  text-transform: uppercase;
+}
+li a:hover{
+  color:grey;
+}
+
+.content_accion{
+  -border: 1px solid red;
+  padding: 30px 50px;
+}
+.crear_seccio{
+  margin-bottom: 50px;
+}
+
+.msg_success{
+  font-size: 0.85em;
+  color: green;
+  margin-top: 40px;
+}
+
+.formListSections{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.listSections{
+    margin-bottom: 20px;
+}
+/*******************
+* ADMIN
+********************/
 
 
 
