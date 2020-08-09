@@ -6,32 +6,29 @@
 # Data modificació: 19/07/2020
 # Permet crear seccions, subseccions i editar-les.
 
+// CAPÇALERA
 
-  // CAPÇALERA
+$title = "Adminstracíon | Miquel Romans";
 
-  $title = "Adminstracíon | Miquel Romans";
+include 'includes/header.php';
+include 'includes/literals.php';
+include 'connection.php';
+include 'scripts/consultas.php';
 
-  include('includes/header.php');
-  include('includes/literals.php');
-  include('connection.php');
-  include('scripts/consultas.php');
+session_start();
 
-  session_start();
-
-  if(!isset($_SESSION['user']))
-  {
+if (!isset($_SESSION['user'])) {
     // TORNAR AL FORMULARI d'ACCÉS.
     header('Location: admin_login.php');
-  }else
-  {
-    $msg ='Hola '.$_SESSION['user'].'! Ja tens el donat d\'alta el perfil 
-          de <b>'.$_SESSION['perfil'].'</b> per accededir al panel d\'administració.</p>';
-    
+} else {
+    $msg = 'Hola ' . $_SESSION['user'] . '! Ja tens el donat d\'alta el perfil
+          de <b>' . $_SESSION['perfil'] . '</b> per accededir al panel d\'administració.</p>';
+
     $user = $_SESSION['user'];
     //echo 'user: '.$user;
-  }
+}
 
-  $selected_projecte = '';
+$selected_projecte = '';
 
 ?>
 
@@ -56,189 +53,190 @@
 <!-------------------->
 
 <?php
-  if(isset($_GET['accio'])){
-      $accio = $_GET['accio'];
-      echo '<div class="content_accion">';
-      switch ($accio) {
+if (isset($_GET['accio'])) {
+    $accio = $_GET['accio'];
+    echo '<div class="content_accion">';
+    switch ($accio) {
         case 1:
-         echo '<div class="crear_seccio">
+            echo '<div class="crear_seccio">
           <form action="crea_seccio.php" method="post">
             <input type="hidden" id="accio" name="accio" value="$accio">
-            <label for="crear_seccio">'.$literal["crear_seccio"].'</label>
+            <label for="crear_seccio">' . $literal["crear_seccio"] . '</label>
             <input type="text" id="crear_seccio" name="crear_seccio">
-            <input type="submit" value="'.$literal["crear_seccio"].'"> ';
+            <input type="submit" value="' . $literal["crear_seccio"] . '"> ';
 
-            if(isset($_GET['msg'])){
-              $msg= $_GET['msg'];
-              echo $msg;
-            }else{
-              $msg = "";
+            if (isset($_GET['msg'])) {
+                $msg = $_GET['msg'];
+                echo $msg;
+            } else {
+                $msg = "";
             }
-          echo '</form> 
+            echo '</form>
           </div>';
 
-          // LISTAT DE SECCIONS
-          echo '<h1>Llistat de seccions:</h1>';
-          $sql = "SELECT id, nom FROM seccions order by id asc";
-          $mysqli->set_charset("utf8");
-          $result = $mysqli->query($sql); 
-          $count = 1;
+            // LISTAT DE SECCIONS
+            echo '<h1>Llistat de seccions:</h1>';
+            $sql = "SELECT id, nom, publicar FROM seccions order by id asc";
+            $mysqli->set_charset("utf8");
+            $result = $mysqli->query($sql);
+            $count  = 1;
 
-          if ($result->num_rows > 0) {
-            echo '<form class="formListSections" action="" method="post">';
-            // output data of each row
-            while($row = $result->fetch_assoc())
-            {
-                $id  = $row['id'];
-                $nom = $row['nom'];
-              //echo "<br>".$nom.'<br>';
-              echo '
+            if ($result->num_rows > 0) {
+                echo '<form class="formListSections" action="" method="post">';
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    $id  = $row['id'];
+                    $nom = $row['nom'];
+                    $publicar = $row['publicar'];
+                    //echo "<br>".$nom.'<br>';
+
+                    // En funció de camp publicar
+                    // marca o desmarca casella.
+                    if ($publicar == 1) {
+                      $checked = "checked";
+                    }else {
+                      $checked = "";
+                    }
+
+                    echo '
               <div class="listSections">
-                <label for="">'.$count.'</label>   
-                <input onChange="updateSeccio(this.id, this.value);" type="text" name="'.$id.'" id="'.$id.'" value="'.$nom.'">
-                <input type="checkbox" name="" id="">
-                <label for="">Publicar</label>
-                <a href="eliminarSeccio.php?id='.$id.'">Delete</a>
-                
-              </div>';
-              $count++;
-            }
-            echo '</form>';
-          }
-          break;
-        case 2:
-          echo 'Mostra formulari crear projecte';
-          break;
-        case 3:
-          echo 'Mostra formulari editar projecte';
-          break;
-        
-        default:
-          # code...
-          break;
-          echo'</div>';
-      }
+                <label for="">' . $count . '</label>
+                <input onChange="updateSeccio(this.id, this.value);" type="text" name="' . $id . '" id="' . $id . '" value="' . $nom . '">
+                <input type="checkbox" name="publicar" id="publicar" '.$checked.' onChange="updateSeccio2('.$id.', '.$publicar.');" >
+                <label for="publicar">Publicar</label>
+                <a href="eliminarSeccio.php?id=' . $id . '">Esborrar</a>
 
-      echo  '</div>';
-  }
+              </div>';
+                    $count++;
+                }
+                echo '</form>';
+            }
+            break;
+        case 2:
+            echo 'Mostra formulari crear projecte';
+            break;
+        case 3:
+            echo 'Mostra formulari editar projecte';
+            break;
+
+        default:
+            # code...
+            break;
+            echo '</div>';
+    }
+
+    echo '</div>';
+}
 
 ?>
 
 <?php
- /* if($_SERVER['REQUEST_METHOD'] == 'POST')
-  {
-    if(isset($_POST['projecte'])){
-      $selected_projecte = $_POST['projecte'];
-      //echo 'secció seleccionada: '.$selected_projecte;
-    }
-  }
+/* if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+if(isset($_POST['projecte'])){
+$selected_projecte = $_POST['projecte'];
+//echo 'secció seleccionada: '.$selected_projecte;
+}
+}
 ?>
-  <!-- COS-->
-    <div id="admin_content_wrap" style="padding:50px 50px;">
+<!-- COS-->
+<div id="admin_content_wrap" style="padding:50px 50px;">
 
-        <div>
-            <p><?php echo $msg?></p>
-        </div>
-   
-        <form action="" method="post">
-            <?php
-                $sql = "SELECT id, nom, id_seccio FROM projectes";
-                $result = $mysqli->query($sql);
+<div>
+<p><?php echo $msg?></p>
+</div>
 
-                if ($result->num_rows > 0)
-                {
-                  // INICI -  Selecciona la secció.
-                  echo '
-                  <label for="">Projecte:</label>
-                  <select name="projecte" id="projecte">';
+<form action="" method="post">
+<?php
+$sql = "SELECT id, nom, id_seccio FROM projectes";
+$result = $mysqli->query($sql);
 
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      $projecte =  utf8_encode($row["nom"]);
-                      $id = $row["id"];
-                      $id_seccio = $row["id_seccio"];
-               
-                    if($selected_projecte == $projecte){
-                      
-                      echo '<option value="'.$projecte.'" selected>'.$projecte.'</option>';
-                    }  
-                    else{
-                      echo '<option value="'.$projecte.'" >'.$projecte.'</option>';
-                    }
-                  }
-                  echo '</select>';
+if ($result->num_rows > 0)
+{
+// INICI -  Selecciona la secció.
+echo '
+<label for="">Projecte:</label>
+<select name="projecte" id="projecte">';
 
-   
-                  
-                  //$sql2 = "SELECT descripcio from projectes where id_seccio = $seccio";
-                  //$sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
-                  $sql2 = select_seccio($id_seccio);
+// output data of each row
+while($row = $result->fetch_assoc()) {
+$projecte =  utf8_encode($row["nom"]);
+$id = $row["id"];
+$id_seccio = $row["id_seccio"];
 
-                  $sql343 = general_select('id', 'nom', 'cognom', 'usuaris', 'id', 1 );
-                  $result343 = $mysqli->query($sql343);
-                  if ($result343->num_rows > 0){
-                    echo 'RESULT!!!';
-                  }
-           
-         
-                } 
-                else 
-                {
-                  echo "No s'ha trobat cap secció a la base de dades.";
-                }
-                // INICI -  Selecciona la secció.
+if($selected_projecte == $projecte){
 
+echo '<option value="'.$projecte.'" selected>'.$projecte.'</option>';
+}
+else{
+echo '<option value="'.$projecte.'" >'.$projecte.'</option>';
+}
+}
+echo '</select>';
 
-                // PINTEM EL NUM DE SECCIO
-                $sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
-               // echo $sql2;
-                $result2 = $mysqli->query($sql2);
-                if($result2->num_rows > 0)
-                {
-                  while($row = $result2->fetch_assoc()) 
-                  {
-                    $seccio =  utf8_encode($row["nom"]);
-                    $id_projecte = $row["id"];
-                    $id_seccio = $row["id_seccio"];
-              
-                    if($selected_projecte == $projecte)
-                    {
-                      echo '<p>id_seccio: '.$id_seccio.'<p>';
-                      $sql3 = "SELECT descripcio from projectes where id = $id";
-                      $result3 = $mysqli->query($sql3);
+//$sql2 = "SELECT descripcio from projectes where id_seccio = $seccio";
+//$sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
+$sql2 = select_seccio($id_seccio);
 
-                      if($result3->num_rows > 0)
-                      {
-                        while ($row = $result3->fetch_assoc()) {
-                          $descripcio = $row['descripcio'];
-                          echo '<textarea>descripcio: '.$descripcio.'</textarea>';
-                        }
-                      }
-                      
-                    }
-                    
-  
-                  }
-                }  
-                else{
-                  echo "error";
-                }       
-                  $mysqli->close();
-            ?>
-       
-    
-            <input type="submit" value="enviar">
-        </form>
-  </div>
+$sql343 = general_select('id', 'nom', 'cognom', 'usuaris', 'id', 1 );
+$result343 = $mysqli->query($sql343);
+if ($result343->num_rows > 0){
+echo 'RESULT!!!';
+}
 
+}
+else
+{
+echo "No s'ha trobat cap secció a la base de dades.";
+}
+// INICI -  Selecciona la secció.
 
-*/
+// PINTEM EL NUM DE SECCIO
+$sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
+// echo $sql2;
+$result2 = $mysqli->query($sql2);
+if($result2->num_rows > 0)
+{
+while($row = $result2->fetch_assoc())
+{
+$seccio =  utf8_encode($row["nom"]);
+$id_projecte = $row["id"];
+$id_seccio = $row["id_seccio"];
 
+if($selected_projecte == $projecte)
+{
+echo '<p>id_seccio: '.$id_seccio.'<p>';
+$sql3 = "SELECT descripcio from projectes where id = $id";
+$result3 = $mysqli->query($sql3);
 
-  //session_destroy();
+if($result3->num_rows > 0)
+{
+while ($row = $result3->fetch_assoc()) {
+$descripcio = $row['descripcio'];
+echo '<textarea>descripcio: '.$descripcio.'</textarea>';
+}
+}
 
-  // PEU
-  include('includes/footer.html');
+}
+
+}
+}
+else{
+echo "error";
+}
+$mysqli->close();
+?>
+
+<input type="submit" value="enviar">
+</form>
+</div>
+
+ */
+
+//session_destroy();
+
+// PEU
+include 'includes/footer.html';
 ?>
 
 
@@ -265,6 +263,44 @@ function updateSeccio(id, value)
   xhttp.send("id="+id+"&nom="+value);
 
 } // end showInfo().
+
+  // Show content
+function updateSeccio2(id, publicar)
+{
+   var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+  {
+    if(this.readyState == 4 && this.status == 200)
+    {
+      //alert(publicar);
+      //document.getElementById('').innerHTML = this.responseText;
+      //showMenu();
+    }
+  };
+
+  xhttp.open("POST", "updateSeccio.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("id="+id+"&publicar="+publicar);
+
+} // end showInfo().
+
+
+/* function update_publicar(publicar, id) {
+  if (publicar == true) {
+
+    alert("TRUEeee");
+    $sql = "UPDATE seccions set publicar = 1 where id = ".$id.";
+    $mysqli->set_charset("utf8");
+    $result = $mysqli->query($sql);
+    
+
+    // Update publicar
+    
+  }else{
+    alert('FALSEEEEEE');
+  }
+  $mysqli->close();
+} */
 
 </script>
 

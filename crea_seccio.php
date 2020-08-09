@@ -44,7 +44,7 @@
               }
           }else
           {
-              $sql = "INSERT INTO seccions (nom) values ('$crear_seccio')";
+              $sql = "INSERT INTO seccions (nom, publicar) values ('$crear_seccio', 1)";
               
               $mysqli->set_charset("utf8");
               $result = $mysqli->query($sql);

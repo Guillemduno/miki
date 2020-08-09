@@ -16,7 +16,7 @@
            <!-- <ul> -->
             <?php
             
-            $sql = 'SELECT id, nom FROM seccions  ORDER BY id';
+            $sql = 'SELECT id, nom FROM seccions WHERE publicar = 1  ORDER BY id';
             $mysqli->set_charset("utf8");
             $result = $mysqli->query($sql);
               
