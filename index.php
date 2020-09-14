@@ -4,7 +4,7 @@
   // CAPÇALERA
   include('includes/header.php');
   // COS
-  include('includes/body.html');
+  include('includes/body.php');
   // PEU
   include('includes/footer.html');
 ?>

@@ -1,17 +1,45 @@
 
 <?php
   include_once('./scripts/functions.php');
+  include('connection.php');
 
   // Recull la clau del l'apartat.
-  if(isset($_POST['key']))
+  if(isset($_POST['id']))
   {
-    $key = $_POST['key'];
-  
+    $subseccio_id = $_POST['id'];
   }else
   {
-    $key = '';
+    $subseccio_id = '';
   }
 
+  if($subseccio_id == 4){
+    $sql3 = "SELECT nom, descripcio, video, imatge FROM subseccions WHERE id_seccio = 4";
+  }else if($subseccio_id == 5){
+    $sql3 = "SELECT nom, descripcio, video, imatge FROM subseccions WHERE id_seccio = 5";
+  }else {
+    $sql3 = "SELECT nom, descripcio, video, imatge FROM subseccions WHERE publicar = 1 AND id = $subseccio_id";
+    
+  }
+  $mysqli->set_charset("utf8");
+  //echo $sql3;
+    $result3 = $mysqli->query($sql3);
+
+    if ($result3->num_rows > 0) {
+      // output data of each row
+      while($row3 = $result3->fetch_assoc()) {
+          $subseccio_nom          = $row3["nom"];
+          $subseccio_descripcio   = $row3["descripcio"];
+          $subseccio_video        = $row3["video"];
+          $subseccio_imatge       = $row3["imatge"];
+
+
+          //echo "<br>".$subseccio_descripcio."<br>".$subseccio_nom."<br>".$subseccio_video." ".$subseccio_imatge."<br>";
+          pinta_credits($subseccio_video, '', $subseccio_descripcio, '', "", '', $subseccio_imatge, '', "");
+      }
+  } else{
+    echo 'No hi ha resultats de subseccions';
+  }
+/*
   // Mostra el contingut de cada pel·lícula.
   echo '<div class="video_wrap">';
   switch ($key)
@@ -538,6 +566,8 @@
   }
 
 echo '</div>';  
+
+*/
 ?>
 
 
