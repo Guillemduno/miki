@@ -15,6 +15,7 @@ include 'includes/literals.php';
 include 'connection.php';
 include 'scripts/consultas.php';
 
+
 session_start();
 
 if (!isset($_SESSION['user'])) {
@@ -128,111 +129,6 @@ if (isset($_GET['accio'])) {
     echo '</div>';
 }
 
-?>
-
-<?php
-/* if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-if(isset($_POST['projecte'])){
-$selected_projecte = $_POST['projecte'];
-//echo 'secció seleccionada: '.$selected_projecte;
-}
-}
-?>
-<!-- COS-->
-<div id="admin_content_wrap" style="padding:50px 50px;">
-
-<div>
-<p><?php echo $msg?></p>
-</div>
-
-<form action="" method="post">
-<?php
-$sql = "SELECT id, nom, id_seccio FROM projectes";
-$result = $mysqli->query($sql);
-
-if ($result->num_rows > 0)
-{
-// INICI -  Selecciona la secció.
-echo '
-<label for="">Projecte:</label>
-<select name="projecte" id="projecte">';
-
-// output data of each row
-while($row = $result->fetch_assoc()) {
-$projecte =  utf8_encode($row["nom"]);
-$id = $row["id"];
-$id_seccio = $row["id_seccio"];
-
-if($selected_projecte == $projecte){
-
-echo '<option value="'.$projecte.'" selected>'.$projecte.'</option>';
-}
-else{
-echo '<option value="'.$projecte.'" >'.$projecte.'</option>';
-}
-}
-echo '</select>';
-
-//$sql2 = "SELECT descripcio from projectes where id_seccio = $seccio";
-//$sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
-$sql2 = select_seccio($id_seccio);
-
-$sql343 = general_select('id', 'nom', 'cognom', 'usuaris', 'id', 1 );
-$result343 = $mysqli->query($sql343);
-if ($result343->num_rows > 0){
-echo 'RESULT!!!';
-}
-
-}
-else
-{
-echo "No s'ha trobat cap secció a la base de dades.";
-}
-// INICI -  Selecciona la secció.
-
-// PINTEM EL NUM DE SECCIO
-$sql2 = "SELECT id, nom, id_seccio FROM projectes where id_seccio = $id_seccio";
-// echo $sql2;
-$result2 = $mysqli->query($sql2);
-if($result2->num_rows > 0)
-{
-while($row = $result2->fetch_assoc())
-{
-$seccio =  utf8_encode($row["nom"]);
-$id_projecte = $row["id"];
-$id_seccio = $row["id_seccio"];
-
-if($selected_projecte == $projecte)
-{
-echo '<p>id_seccio: '.$id_seccio.'<p>';
-$sql3 = "SELECT descripcio from projectes where id = $id";
-$result3 = $mysqli->query($sql3);
-
-if($result3->num_rows > 0)
-{
-while ($row = $result3->fetch_assoc()) {
-$descripcio = $row['descripcio'];
-echo '<textarea>descripcio: '.$descripcio.'</textarea>';
-}
-}
-
-}
-
-}
-}
-else{
-echo "error";
-}
-$mysqli->close();
-?>
-
-<input type="submit" value="enviar">
-</form>
-</div>
-
- */
-
 //session_destroy();
 
 // PEU
@@ -240,67 +136,47 @@ include 'includes/footer.html';
 ?>
 
 
-
-
 <script>
 
   // Show content
-function updateSeccio(id, value)
-{
-   var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function()
+  function updateSeccio(id, value)
   {
-    if(this.readyState == 4 && this.status == 200)
+     var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function()
     {
-      //alert(key);
-      document.getElementById('').innerHTML = this.responseText;
-      //showMenu();
-    }
-  };
-
-  xhttp.open("POST", "updateSeccio.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("id="+id+"&nom="+value);
-
-} // end showInfo().
-
-  // Show content
-function updateSeccio2(id, publicar)
-{
-   var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function()
+      if(this.readyState == 4 && this.status == 200)
+      {
+        //alert(key);
+        document.getElementById('').innerHTML = this.responseText;
+        //showMenu();
+      }
+    };
+  
+    xhttp.open("POST", "updateSeccio.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+id+"&nom="+value);
+  
+  } // end showInfo().
+  
+    // Show content
+  function updateSeccio2(id, publicar)
   {
-    if(this.readyState == 4 && this.status == 200)
+     var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function()
     {
-      //alert(publicar);
-      //document.getElementById('').innerHTML = this.responseText;
-      //showMenu();
-    }
-  };
-
-  xhttp.open("POST", "updateSeccio.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("id="+id+"&publicar="+publicar);
-
-} // end showInfo().
-
-
-/* function update_publicar(publicar, id) {
-  if (publicar == true) {
-
-    alert("TRUEeee");
-    $sql = "UPDATE seccions set publicar = 1 where id = ".$id.";
-    $mysqli->set_charset("utf8");
-    $result = $mysqli->query($sql);
-    
-
-    // Update publicar
-    
-  }else{
-    alert('FALSEEEEEE');
-  }
-  $mysqli->close();
-} */
+      if(this.readyState == 4 && this.status == 200)
+      {
+        //alert(publicar);
+        //document.getElementById('').innerHTML = this.responseText;
+        //showMenu();
+      }
+    };
+  
+    xhttp.open("POST", "updateSeccio.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("id="+id+"&publicar="+publicar);
+  
+  } // end showInfo().
 
 </script>
 
